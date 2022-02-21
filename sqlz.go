@@ -96,7 +96,7 @@ func (db *DB) TransactionalContext(
 		return err
 	}
 
-	err = tx.Commit()
+	err = tx.Rollback()
 	if err != nil {
 		return fmt.Errorf("failed committing transaction: %w", err)
 	}
